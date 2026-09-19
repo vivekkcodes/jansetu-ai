@@ -1,5 +1,7 @@
-﻿# JANSETU AI
+# JANSETU AI
 ### "From Citizen Voice to Development Priority"
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvivekkcodes%2Fjansetu-ai&root-directory=frontend)
 
 An AI-powered **Development Intelligence and Priority Engine** that bridges the gap between fragmented citizen grievances and strategic public infrastructure investments.
 
