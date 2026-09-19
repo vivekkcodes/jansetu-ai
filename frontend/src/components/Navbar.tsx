@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { translations, Language } from '../i18n/translations';
 import { ShieldCheck, Activity, MessageSquare } from 'lucide-react';
 
@@ -30,19 +30,19 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Brand */}
         <div 
           onClick={() => setCurrentView('landing')} 
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink-0"
         >
-          <div className="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-xl shadow-inner group-hover:bg-emerald-500 transition-colors">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-base sm:text-xl shadow-inner group-hover:bg-emerald-500 transition-colors">
             JS
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-lg tracking-wider text-white">JANSETU AI</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-700/50 font-mono">
+            <div className="flex items-center gap-1.5">
+              <span className="font-extrabold text-sm sm:text-lg tracking-wider text-white">JANSETU AI</span>
+              <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-700/50 font-mono hidden md:inline-block">
                 GovTech MVP
               </span>
             </div>
-            <p className="text-[11px] text-slate-400 hidden sm:block">
+            <p className="text-[11px] text-slate-400 hidden lg:block">
               {t.tagline}
             </p>
           </div>
@@ -52,39 +52,41 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="flex items-center gap-1 sm:gap-2">
           <button
             onClick={() => setCurrentView('citizen')}
-            className={`px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all ${
+            className={`px-2.5 sm:px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all ${
               currentView === 'citizen'
                 ? 'bg-emerald-600 text-white shadow'
                 : 'text-slate-300 hover:text-white hover:bg-slate-800'
             }`}
           >
-            {t.reportProblem}
+            <span className="hidden sm:inline">{t.reportProblem}</span>
+            <span className="sm:hidden">{lang === 'hi' ? 'शिकायत' : 'Report'}</span>
           </button>
 
           <button
             onClick={() => setCurrentView('admin')}
-            className={`px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all flex items-center gap-1.5 ${
+            className={`px-2.5 sm:px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all flex items-center gap-1 sm:gap-1.5 ${
               currentView === 'admin'
                 ? 'bg-blue-600 text-white shadow'
                 : 'text-slate-300 hover:text-white hover:bg-slate-800'
             }`}
           >
-            <ShieldCheck className="w-4 h-4 text-blue-300" />
-            {t.adminDashboard}
+            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-300" />
+            <span className="hidden sm:inline">{t.adminDashboard}</span>
+            <span className="sm:hidden">{lang === 'hi' ? 'प्रशासन' : 'Admin'}</span>
           </button>
         </nav>
 
         {/* Right action controls */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           <button
             onClick={onTriggerSimulation}
             disabled={isSimulating}
             title="Simulate incoming citizen distress reports to demonstrate live AI re-scoring"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition-all disabled:opacity-50"
+            className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition-all disabled:opacity-50"
           >
             <Activity className={`w-3.5 h-3.5 text-amber-400 ${isSimulating ? 'animate-spin' : ''}`} />
-            <span className="hidden md:inline">{t.liveDemo}</span>
-            <span className="md:hidden">Simulate</span>
+            <span className="hidden lg:inline">{t.liveDemo}</span>
+            <span className="hidden sm:inline lg:hidden">Simulate</span>
           </button>
 
           <button
@@ -98,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center rounded-md bg-slate-800 border border-slate-700 p-0.5 text-xs">
             <button
               onClick={() => setLang('en')}
-              className={`px-2 py-1 rounded ${
+              className={`px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[11px] sm:text-xs ${
                 lang === 'en' ? 'bg-slate-700 text-white font-semibold' : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -106,11 +108,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => setLang('hi')}
-              className={`px-2 py-1 rounded ${
+              className={`px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[11px] sm:text-xs ${
                 lang === 'hi' ? 'bg-slate-700 text-white font-semibold' : 'text-slate-400 hover:text-white'
               }`}
             >
-              हिन्दी
+              HI
             </button>
           </div>
         </div>

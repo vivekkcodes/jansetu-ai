@@ -346,11 +346,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
             <select
               value={selectedDistrict}
               onChange={(e) => setSelectedDistrict(e.target.value)}
-              className="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none"
+              className="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none flex-1 sm:flex-none"
             >
               <option value="All">{t.allDistricts}</option>
               <option value="Varanasi">Varanasi</option>
@@ -363,7 +363,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none"
+              className="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none flex-1 sm:flex-none"
             >
               <option value="All">{t.allCategories}</option>
               <option value="Road Infrastructure">Road Infrastructure</option>
@@ -968,8 +968,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-800/40">
-              <table className="w-full text-left text-xs">
+            <div className="rounded-xl overflow-x-auto border border-slate-800 bg-slate-800/40">
+              <table className="min-w-[650px] w-full text-left text-xs">
                 <thead className="bg-slate-900 text-slate-400 uppercase font-semibold border-b border-slate-800">
                   <tr>
                     <th className="p-3">ID</th>
