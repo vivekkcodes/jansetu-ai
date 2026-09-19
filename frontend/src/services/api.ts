@@ -7,7 +7,8 @@ import {
   AIAnalysisResult
 } from '../types';
 
-const API_BASE = 'http://localhost:8000/api';
+const BACKEND_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/+$/, '');
+const API_BASE = `${BACKEND_URL}/api`;
 
 export const api = {
   async getHealth() {
